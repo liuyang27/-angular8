@@ -1,0 +1,74 @@
+<p>test works!</p>
+<h2>
+<input  type="text" value="aaa" [disabled]="true" id="{{myid}}"/>
+</h2>
+<h2 [style.color]="'orange'">aaaaaaaaaaa</h2>
+<h2 [style.color]="mycolor">ccccccccccc</h2>
+<h2 [class]="myclass">bbbbbbbbbb</h2>
+<h2 [ngStyle]="titlestyle">dddddddddd</h2>
+<hr/>
+<button (click)="onclick($event)">Greet</button>
+<button (click)="greeting2='hahaha'">Greet</button>
+{{greeting1}}<br/>
+{{greeting2}}
+<hr/>
+<h2>Template reference varabiles:</h2>
+<input #myinput type="text"/>
+<button (click)="logmsg(myinput.value)">Log</button>
+<hr/>
+<h2>two way binding:</h2>
+input:<input [(ngModel)]="name" type="text"><br/>
+output:{{name}}
+<hr/>
+<h2>ngIf:</h2>
+<h2 *ngIf="tf; else elseblock">ngIf test1</h2>
+<h2 *ngIf="true">ngIf test2</h2>
+<ng-template #elseblock>
+    <h2>hidden nameee</h2>
+</ng-template>
+<div *ngIf="true; then thenblk; else elseblk">
+</div>
+<ng-template #thenblk>
+    <h2>then blk</h2>
+</ng-template>
+<ng-template #elseblk>
+    <h2>else blk</h2>
+</ng-template>
+<hr/>
+<h2>ngswitch:</h2>
+<div [ngSwitch]="mycolor">
+    <div *ngSwitchCase="'red'">you picked red color</div>
+    <div *ngSwitchCase="'blue'">you picked blue color</div>
+    <div *ngSwitchCase="'green'">you picked green color</div>
+    <div *ngSwitchDefault>no such case, pick again</div>
+</div>
+<hr/>
+<h2>ngfor:</h2>
+<table>
+    <tr>
+        <th>index</th>
+        <th>color</th>
+        <th>first</th>
+        <th>last</th>
+        <th>odd</th>
+    </tr>
+    <tr *ngFor="let c of colorarray;index as i; first as f; last as l;odd as o">
+        <td >{{i}}</td>
+        <td >{{c}}</td>
+        <td >{{f}}</td>
+        <td >{{l}}</td>
+        <td >{{o}}</td>
+    </tr>
+</table>
+<hr/>
+<h2>Component Interaction(input,output):</h2>
+input:<h3>{{"Hello "+myparentData}}</h3>
+<button (click)="fireEvent()">send event</button>
+
+
+
+
+
+
+
+
